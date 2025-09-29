@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>จองคิว | NEVERSAYCUTZ</title>
+    <link rel="stylesheet" href="siamsquareone-booking6.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <div class="navbar-left">
+                <a href="Homepage.html">
+                    <img src="assets/logo.png" alt="NEVERSAYCUTZ" class="logo">
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="service.html">ใหม่ & แนะนำ</a></li>
+                        <li><a href="service.html">ประเภท</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="navbar-right">
+                <div class="search-container">
+                    <input type="text" id="search-bar" class="search-bar" placeholder="ค้นหา..." onkeyup="searchServices()">
+                    <div id="search-results" class="search-results"></div>
+                </div>
+                <a href="login.html" class="login-btn">เข้าสู่ระบบ / สมัครสมาชิก</a> 
+                <span class="icon"><img src="assets/favorite.png" alt="Favorite"></span>
+                <span class="icon"><img src="assets/notification.png" alt="Notification"></span>
+                <span class="icon"><img src="assets/cart.png" alt="Cart"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Booking Progress -->
+    <section class="booking-progress">
+        <div class="step active">1</div>
+        <div class="line"></div>
+        <div class="step active">2</div>
+        <div class="line"></div>
+        <div class="step active">3</div>
+        <div class="line"></div>
+        <div class="step active">4</div>
+    </section>
+
+    <!-- Booking Details -->
+    <section class="booking-details">
+        <button class="back-btn" onclick="window.location.href='siamsquareone-booking5.html'">กลับ</button>
+        <h2>ชำระเงิน</h2>
+        <section class="summary-section" id="summary-section">
+            <div class="summary-card">
+                <img src="assets/stylist-b.png" alt="ช่างบี" class="stylist-img">
+                <div class="summary-details">
+                    <h3>ตัดผมชาย</h3>
+                    <p class="stylist-name">ช่างบี - ตัดผม</p>
+                    <p><img src="assets/calendar-icon.png" class="icon"> วันจันทร์ 3 มี.ค. 2568</p>
+                    <p><img src="assets/clock-icon.png" class="icon"> 17:00</p>
+                    <p><img src="assets/person-icon.png" class="icon"> <span id="queue-count">1</span> คิว</p>
+                </div>
+        
+            </div>
+            <section class="coupon-section">
+                <input type="text" class="coupon-input" placeholder="ใส่คูปองส่วนลด" disabled>
+                <button class="apply-coupon-btn" disabled>ใช้คูปองส่วนลด</button>
+                <button class="select-coupon-btn" onclick="openCouponModal()">เลือกคูปองส่วนลด (0)</button>
+            </section>
+            
+            <!-- ป็อปอัพแจ้งเตือน -->
+            <div id="coupon-modal" class="modal">
+                <div class="modal-content">
+                    <p>คุณยังไม่มีคูปอง</p>
+                    <button onclick="closeCouponModal()">ปิด</button>
+                </div>
+            </div>
+            <section class="payment-summary">
+                <p class="summary-title">รายการจองทั้งหมด (1 บริการ) <span class="price">฿500</span></p>
+                <p class="summary-item">ส่วนลด <span class="price">฿0</span></p>
+                <p class="summary-total">ยอดชำระทั้งหมด <span class="price">฿500</span></p>
+            </section>
+            <section class="payment-method">
+                <h3>ช่องทางการชำระเงิน</h3>
+                
+                <div class="payment-option">
+                    <div class="transfer-box">
+                        <img src="assets/transfer-icon.png" alt="โอนเงิน">
+                        <p>โอนเงิน</p>
+                    </div>
+                </div>
+            
+                <div class="bank-info">
+                    <img src="assets/scb-logo.png" alt="SCB" class="bank-logo">
+                    <div class="bank-details">
+                        <p><strong>ธนาคารไทยพาณิชย์ (SCB)</strong></p>
+                        <p>(บริษัท บาร์เบอร์ช็อป จำกัด)</p>
+                        <p class="account-number">408-5-31773-5 <span class="copy-icon" onclick="copyAccount()">📋</span></p>
+                    </div>
+                </div>
+            </section>
+            <section class="payment-proof-section">
+                <h3>หลักฐานการชำระเงิน</h3>
+            
+                <label for="upload-slip" class="upload-box">
+                    <input type="file" id="upload-slip" accept="image/*" onchange="previewImage(event)">
+                    <div class="upload-content">
+                        <img id="preview-icon" src="assets/upload-icon.png" alt="อัปโหลดสลิป">
+                        <p id="upload-text">อัปโหลดสลิป</p>
+                    </div>
+                </label>
+            </section>
+                                        
+        
+            <button class="confirm-btn" onclick="openBookingPopup()">ยืนยัน</button>
+            <div id="booking-popup" class="popup-overlay">
+                <div class="popup-content">
+                    <span class="close-btn" onclick="closeBookingPopup()">✖</span>
+                    <img src="assets/check-icon.png" alt="จองสำเร็จ" class="success-icon">
+                    <h2>จองสำเร็จ!</h2>
+                    <p><strong>หมายเลขการจอง: 421</strong></p>
+                    <p>ชื่อผู้จอง <strong>Thotsapol Nirandon</strong></p>
+                    
+                    <h3>03 มีนาคม 2025</h3>
+                    <p>1x ช่างบี - ตัดผม <span class="time">17:00</span></p>
+            
+                    <h3>หมายเหตุ</h3>
+                    <p><strong>หมายเหตุบริการ (ตัดผม):</strong></p>
+                    <p class="warning-text">หากยกเลิกการจองแล้วจะไม่มีการคืนเงินบัดจำทุกกรณี</p>
+            
+                    <p class="screenshot-note">
+                        <img src="assets/screenshot-icon.png" alt="Screenshot"> กรุณาบันทึกภาพหน้าจอเพื่อเก็บหลักฐานการจองของท่าน
+                    </p>
+                </div>
+            </div>
+        </section>    
+    </section>
+        
+
+<!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <!-- โลโก้ -->
+        <div class="footer-logo">
+            <img src="assets/logo-footer.png" alt="NEVERSAYCUTZ">
+        </div>
+
+        <!-- ข้อมูลสำนักงาน -->
+        <div class="footer-info">
+            <p><strong>Branch Office</strong></p>
+            <p><a href="#">Location – Thonglor 125 34 Sukhumvit Rd, Khlong Toei Nua, Watthana, Bangkok 10110</a></p>
+            <p><a href="#">Call Center – 099-424-4544</a></p>
+            <p><a href="#">Email – info@neversaycutz.com</a></p>
+        </div>
+
+        <!-- ปุ่ม Admin จัดให้อยู่ขวาสุด -->
+        <div class="admin-container">
+            <a href="admin.html" class="admin-link"><strong>Admin</strong></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    let lastScrollTop = 0;
+    const navbar = document.querySelector('.navbar');
+
+    window.addEventListener('scroll', function () {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop && scrollTop > 50) {
+            // เลื่อนลง -> ซ่อน Navbar
+            navbar.classList.add('hidden');
+        } else {
+            // เลื่อนขึ้น -> แสดง Navbar
+            navbar.classList.remove('hidden');
+        }
+
+        lastScrollTop = scrollTop;
+    });
+</script>
+
+<script>
+    function deleteBooking() {
+        const summarySection = document.getElementById("summary-section");
+        if (summarySection) {
+            summarySection.remove(); // ลบ section ออกจาก DOM
+        }
+    }
+
+    // ตรวจสอบการปิดปุ่มลดเมื่อโหลดหน้าเว็บ
+    document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("decrease").disabled = (quantity === 1);
+    });
+</script>
+<script>
+    let quantity = 1;
+    const pricePerUnit = 500;
+
+    function updateQuantity(change) {
+        quantity += change;
+        if (quantity < 1) {
+            quantity = 1; // ป้องกันจำนวนติดลบ
+        }
+
+        // อัปเดต UI
+        document.getElementById("quantity").textContent = quantity;
+        document.getElementById("total-price").textContent = `฿${quantity * pricePerUnit}`;
+        document.getElementById("confirm-btn").textContent = `ยืนยันการจอง (฿${quantity * pricePerUnit})`;
+        document.getElementById("queue-count").textContent = quantity; // อัปเดตจำนวนคิว
+
+        // ปรับปุ่มลดให้ไม่สามารถกดได้เมื่อ quantity = 1
+        document.getElementById("decrease").disabled = (quantity === 1);
+    }
+
+    function deleteBooking() {
+        const confirmDelete = window.confirm("คุณต้องการลบการจองนี้หรือไม่?");
+        
+        if (confirmDelete) {
+            const summarySection = document.getElementById("summary-section");
+            if (summarySection) {
+                summarySection.remove(); // ลบ section ออกจาก DOM
+            }
+        }
+    }
+
+    // ตรวจสอบการปิดปุ่มลดเมื่อโหลดหน้าเว็บ
+    document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("decrease").disabled = (quantity === 1);
+    });
+</script>
+<script>
+    function openCouponModal() {
+        document.getElementById("coupon-modal").style.display = "flex";
+    }
+
+    function closeCouponModal() {
+        document.getElementById("coupon-modal").style.display = "none";
+    }
+</script>
+
+<script>
+    function previewImage(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById("preview-icon").src = e.target.result;
+                document.getElementById("upload-text").textContent = "เปลี่ยนไฟล์";
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+</script>
+<script>
+    function openBookingPopup() {
+        document.getElementById("booking-popup").style.display = "flex";
+    }
+
+    function closeBookingPopup() {
+        document.getElementById("booking-popup").style.display = "none";
+    }
+</script>
+<script>
+    function openBookingPopup() {
+        const popup = document.getElementById("booking-popup");
+        if (popup) {
+            popup.style.display = "flex"; // แสดงป๊อบอัพเมื่อกดปุ่ม
+        }
+    }
+
+    function closeBookingPopup() {
+        const popup = document.getElementById("booking-popup");
+        if (popup) {
+            popup.style.display = "none"; // ปิดป๊อบอัพเมื่อกดปุ่ม ✖
+        }
+    }
+
+    // ตรวจสอบให้แน่ใจว่าป๊อบอัพถูกซ่อนไว้เมื่อโหลดหน้าเว็บ
+    document.addEventListener("DOMContentLoaded", function () {
+        const popup = document.getElementById("booking-popup");
+        if (popup) {
+            popup.style.display = "none";
+        }
+    });
+</script>
+<script>
+    function openCouponModal() {
+        const couponModal = document.getElementById("coupon-modal");
+        if (couponModal) {
+            couponModal.style.display = "flex"; // แสดงป๊อบอัพเมื่อกดปุ่ม
+        }
+    }
+
+    function closeCouponModal() {
+        const couponModal = document.getElementById("coupon-modal");
+        if (couponModal) {
+            couponModal.style.display = "none"; // ปิดป๊อบอัพเมื่อกดปุ่ม "ปิด"
+        }
+    }
+
+    // ตรวจสอบให้แน่ใจว่าป๊อบอัพถูกซ่อนไว้เมื่อโหลดหน้าเว็บ
+    document.addEventListener("DOMContentLoaded", function () {
+        const couponModal = document.getElementById("coupon-modal");
+        if (couponModal) {
+            couponModal.style.display = "none";
+        }
+    });
+</script>
+
+
+
+</body>
+</html>

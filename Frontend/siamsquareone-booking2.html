@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>จองคิว | NEVERSAYCUTZ</title>
+    <link rel="stylesheet" href="siamsquareone-booking2.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <div class="navbar-left">
+                <a href="Homepage.html">
+                    <img src="assets/logo.png" alt="NEVERSAYCUTZ" class="logo">
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="service.html">ใหม่ & แนะนำ</a></li>
+                        <li><a href="service.html">ประเภท</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="navbar-right">
+                <div class="search-container">
+                    <input type="text" id="search-bar" class="search-bar" placeholder="ค้นหา..." onkeyup="searchServices()">
+                    <div id="search-results" class="search-results"></div>
+                </div>
+                <a href="login.html" class="login-btn">เข้าสู่ระบบ / สมัครสมาชิก</a> 
+                <span class="icon"><img src="assets/favorite.png" alt="Favorite"></span>
+                <span class="icon"><img src="assets/notification.png" alt="Notification"></span>
+                <span class="icon"><img src="assets/cart.png" alt="Cart"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Booking Progress -->
+    <section class="booking-progress">
+        <div class="step active">1</div>
+        <div class="line"></div>
+        <div class="step active">2</div>
+        <div class="line"></div>
+        <div class="step">3</div>
+        <div class="line"></div>
+        <div class="step">4</div>
+    </section>
+
+    <!-- Booking Details -->
+    <section class="booking-details">
+        <button class="back-btn" onclick="window.location.href='siamsquareone-booking.html'">กลับ</button>
+        <h2>NEVERSAYCUTZ Siam Square One</h2>
+        <p class="subtitle">ระบุวันที่ต้องการจอง</p>
+        
+        <div class="date-picker">
+            <img src="assets/calendar-icon.png" alt="calendar">
+            <input type="date" id="booking-date" name="booking-date">
+        </div>
+    </section>
+
+     <!-- Section: บริการ -->
+     <section class="services">
+        <h2>เลือกบริการ</h2>
+        <div class="service-list">
+
+            <!-- บริการ 1 -->
+            <div class="service-card">
+                <img src="assets/service1.png" alt="Gentlemen's Haircut">
+                <div class="service-info">
+                    <h3>Gentlemen's Haircut</h3>
+                    <p>✂️ ตัดผมชาย</p>
+                </div>
+                <span class="service-price">฿500</span>
+                <button class="booking-btn" onclick="window.location.href='siamsquareone-booking3.html'">จองเลย</button>
+            </div>
+
+            <!-- บริการ 2 -->
+            <div class="service-card">
+                <img src="assets/service2.png" alt="Haircut and Wash">
+                <div class="service-info">
+                    <h3>Haircut and Wash</h3>
+                    <p>✂️ สระ-ตัด</p>
+                </div>
+                <span class="service-price">฿550</span>
+                <button class="booking-btn" onclick="window.location.href='siamsquareone-booking3.html'">จองเลย</button>
+            </div>
+
+            <!-- บริการ 3 -->
+            <div class="service-card">
+                <img src="assets/service3.png" alt="Haircut + Shave + Beard">
+                <div class="service-info">
+                    <h3>Haircut + Shave + Beard</h3>
+                    <p>✂️ ตัดผม + กัน + โกนหนวด</p>
+                </div>
+                <span class="service-price">฿900</span>
+                <button class="booking-btn" onclick="window.location.href='siamsquareone-booking3.html'">จองเลย</button>
+
+            </div>
+
+            <!-- บริการ 4 -->
+            <div class="service-card">
+                <img src="assets/service4.png" alt="Shape Up">
+                <div class="service-info">
+                    <h3>Shape Up (Wash + Set, Style, Eyebrows)</h3>
+                    <p>💇‍♂️ กันผม, สระ+เซ็ท, เซ็ท, กันคิ้ว</p>
+                </div>
+                <span class="service-price">฿350</span>
+                <button class="booking-btn">จองเลย</button>
+            </div>
+
+            <!-- บริการ 5 -->
+            <div class="service-card">
+                <img src="assets/service5.png" alt="Beard Trim">
+                <div class="service-info">
+                    <h3>Beard Trim (Shape Up + Eyebrows)</h3>
+                    <p>🧔 โกนหนวด, กันผม + โกนหนวด,กันผม + โกนหนวด + กันคิ้ว</p>
+                </div>
+                <span class="service-price">฿500</span>
+                <button class="booking-btn">จองเลย</button>
+            </div>
+
+            <!-- บริการ 6 -->
+            <div class="service-card">
+                <img src="assets/service6.png" alt="Infants & Toddlers">
+                <div class="service-info">
+                    <h3>Infants & Toddlers (1-5 years old)</h3>
+                    <p>👶 เด็กเล็กอายุ 1-5 ปี</p>
+                </div>
+                <span class="service-price">฿350</span>
+                <button class="booking-btn">จองเลย</button>
+            </div>
+
+            <!-- บริการ 7 -->
+            <div class="service-card">
+                <img src="assets/service7.png" alt="Children Haircut">
+                <div class="service-info">
+                    <h3>Children (6-10 years old)</h3>
+                    <p>👦 เด็กอายุ 6 ปีขึ้นไป</p>
+                </div>
+                <span class="service-price">฿400</span>
+                <button class="booking-btn">จองเลย</button>
+            </div>
+
+            <!-- บริการ 8 -->
+            <div class="service-card">
+                <img src="assets/service8.png" alt="Designs">
+                <div class="service-info">
+                    <h3>Designs</h3>
+                    <p>🎨 ดีไซน์ลายพิเศษ</p>
+                </div>
+                <span class="service-price">฿550</span>
+                <button class="booking-btn">จองเลย</button>
+            </div>
+
+        </div>
+    </section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <!-- โลโก้ -->
+        <div class="footer-logo">
+            <img src="assets/logo-footer.png" alt="NEVERSAYCUTZ">
+        </div>
+
+        <!-- ข้อมูลสำนักงาน -->
+        <div class="footer-info">
+            <p><strong>Branch Office</strong></p>
+            <p><a href="#">Location – Thonglor 125 34 Sukhumvit Rd, Khlong Toei Nua, Watthana, Bangkok 10110</a></p>
+            <p><a href="#">Call Center – 099-424-4544</a></p>
+            <p><a href="#">Email – info@neversaycutz.com</a></p>
+        </div>
+
+        <!-- ปุ่ม Admin จัดให้อยู่ขวาสุด -->
+        <div class="admin-container">
+            <a href="admin.html" class="admin-link"><strong>Admin</strong></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    let lastScrollTop = 0;
+    const navbar = document.querySelector('.navbar');
+
+    window.addEventListener('scroll', function () {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop && scrollTop > 50) {
+            // เลื่อนลง -> ซ่อน Navbar
+            navbar.classList.add('hidden');
+        } else {
+            // เลื่อนขึ้น -> แสดง Navbar
+            navbar.classList.remove('hidden');
+        }
+
+        lastScrollTop = scrollTop;
+    });
+</script>
+
+</body>
+</html>

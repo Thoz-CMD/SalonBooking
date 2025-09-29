@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEVERSAYCUTZ | ร้านตัดผม</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <div class="navbar-left">
+                <a href="Homepage.html">
+                    <img src="assets/logo.png" alt="NEVERSAYCUTZ" class="logo">
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="service.html">ใหม่ & แนะนำ</a></li>
+                        <li><a href="service.html">ประเภท</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="navbar-right">
+                <input type="text" class="search-bar" placeholder="ค้นหา...">
+                <a href="login.html" class="login-btn">เข้าสู่ระบบ / สมัครสมาชิก</a> 
+                <span class="icon"><img src="assets/favorite.png" alt="Favorite"></span>
+                <span class="icon"><img src="assets/notification.png" alt="Notification"></span>
+                <span class="icon"><img src="assets/cart.png" alt="Cart"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section: Branches -->
+    <section class="branches">
+        <div class="branches-header">
+            <h2>สาขาของคุณ</h2>
+        </div>
+        <div class="branch-list">
+            <div class="branch">
+                <a href="adminsetup1.html">
+                    <img src="assets/branch1.png" alt="Siam Square">
+                </a>
+                <h3>NEVERSAYCUTZ (Siam Square ONE)</h3>
+                <p>📍 สยาม สแควร์วัน</p>
+                <p>📞 065-928-0572</p>
+                <span class="heart-icon" data-branch="siam-square">❤️</span>
+            </div>
+        </div>
+    </section>    
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <!-- โลโก้ -->
+            <div class="footer-logo">
+                <img src="assets/logo-footer.png" alt="NEVERSAYCUTZ">
+            </div>
+
+            <!-- ข้อมูลสำนักงาน -->
+            <div class="footer-info">
+                <p><strong>Branch Office</strong></p>
+                <p><a href="#">Location – Thonglor 125 34 Sukhumvit Rd, Khlong Toei Nua, Watthana, Bangkok 10110</a></p>
+                <p><a href="#">Call Center – 099-424-4544</a></p>
+                <p><a href="#">Email – info@neversaycutz.com</a></p>
+            </div>
+
+            <!-- ปุ่ม Admin จัดให้อยู่ขวาสุด -->
+            <div class="admin-container">
+                <a href="admin.html" class="admin-link"><strong>Admin</strong></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
+    
+        window.addEventListener('scroll', function () {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+            if (scrollTop > lastScrollTop && scrollTop > 50) {
+                // เลื่อนลง -> ซ่อน Navbar
+                navbar.classList.add('hidden');
+            } else {
+                // เลื่อนขึ้น -> แสดง Navbar
+                navbar.classList.remove('hidden');
+            }
+    
+            lastScrollTop = scrollTop;
+        });
+    </script>
+    
+</body>
+</html>

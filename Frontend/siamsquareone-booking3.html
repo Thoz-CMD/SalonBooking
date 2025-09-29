@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>จองคิว | NEVERSAYCUTZ</title>
+    <link rel="stylesheet" href="siamsquareone-booking3.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <div class="navbar-left">
+                <a href="Homepage.html">
+                    <img src="assets/logo.png" alt="NEVERSAYCUTZ" class="logo">
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="service.html">ใหม่ & แนะนำ</a></li>
+                        <li><a href="service.html">ประเภท</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="navbar-right">
+                <div class="search-container">
+                    <input type="text" id="search-bar" class="search-bar" placeholder="ค้นหา..." onkeyup="searchServices()">
+                    <div id="search-results" class="search-results"></div>
+                </div>
+                <a href="login.html" class="login-btn">เข้าสู่ระบบ / สมัครสมาชิก</a> 
+                <span class="icon"><img src="assets/favorite.png" alt="Favorite"></span>
+                <span class="icon"><img src="assets/notification.png" alt="Notification"></span>
+                <span class="icon"><img src="assets/cart.png" alt="Cart"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Booking Progress -->
+    <section class="booking-progress">
+        <div class="step active">1</div>
+        <div class="line"></div>
+        <div class="step active">2</div>
+        <div class="line"></div>
+        <div class="step">3</div>
+        <div class="line"></div>
+        <div class="step">4</div>
+    </section>
+
+    <section class="booking-details">
+        <button class="back-btn" onclick="window.location.href='siamsquareone-booking2.html'">กลับ</button>
+        <h2>NEVERSAYCUTZ Siam Square One</h2>
+        <p class="subtitle">ระบุวันที่ต้องการจอง</p>
+        
+        <div class="date-picker">
+            <img src="assets/calendar-icon.png" alt="calendar">
+            <input type="date" id="booking-date" name="booking-date">
+        </div>
+
+        <section class="booking-section">
+            <h2 class="hh">ตัดผมชาย</h2>
+            <p class="subtitle">ตัวเลือก</p>
+            <div class="    ">
+                <button class="stylist-btn active">
+                    <img src="assets/stylist-b.png" alt="ช่างบี"> ช่างบี
+                </button>
+                <button class="stylist-btn">
+                    <img src="assets/stylist-art.png" alt="ช่างอาร์ต"> ช่างอาร์ต
+                </button>
+                <button class="stylist-btn">ไม่มีช่างประจำ</button>
+            </div>
+            
+            <p class="subtitle">เลือกเวลา</p>
+            <div class="time-options">
+                <button class="time-btn disabled">09:00</button>
+                <button class="time-btn">10:00</button>
+                <button class="time-btn">11:00</button>
+                <button class="time-btn">13:00</button>
+                <button class="time-btn">14:00</button>
+                <button class="time-btn">15:00</button>
+                <button class="time-btn">16:00</button>
+            </div>
+            
+            <p class="subtitle">จำนวนจอง</p>
+            <div class="quantity-container">
+                <button class="quantity-btn" id="decrease" disabled>-</button>
+                <span class="quantity-display" id="quantity">1</span>
+                <button class="quantity-btn" id="increase">+</button>
+            </div>
+            
+            <p class="subtitle">ราคา</p>
+            <p class="price-display">฿<span id="total-price">500</span></p>
+            
+            <button class="booking-btn" onclick="window.location.href='siamsquareone-booking4.html'">จอง</button>
+        </section>
+    </section>
+    
+    
+
+<!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <!-- โลโก้ -->
+        <div class="footer-logo">
+            <img src="assets/logo-footer.png" alt="NEVERSAYCUTZ">
+        </div>
+
+        <!-- ข้อมูลสำนักงาน -->
+        <div class="footer-info">
+            <p><strong>Branch Office</strong></p>
+            <p><a href="#">Location – Thonglor 125 34 Sukhumvit Rd, Khlong Toei Nua, Watthana, Bangkok 10110</a></p>
+            <p><a href="#">Call Center – 099-424-4544</a></p>
+            <p><a href="#">Email – info@neversaycutz.com</a></p>
+        </div>
+
+        <!-- ปุ่ม Admin จัดให้อยู่ขวาสุด -->
+        <div class="admin-container">
+            <a href="admin.html" class="admin-link"><strong>Admin</strong></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    let lastScrollTop = 0;
+    const navbar = document.querySelector('.navbar');
+
+    window.addEventListener('scroll', function () {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop && scrollTop > 50) {
+            // เลื่อนลง -> ซ่อน Navbar
+            navbar.classList.add('hidden');
+        } else {
+            // เลื่อนขึ้น -> แสดง Navbar
+            navbar.classList.remove('hidden');
+        }
+
+        lastScrollTop = scrollTop;
+    });
+</script>
+
+<script>
+    let quantity = 1;
+    const pricePerSlot = 500;
+
+    document.getElementById("increase").addEventListener("click", function () {
+        quantity++;
+        updateBooking();
+    });
+
+    document.getElementById("decrease").addEventListener("click", function () {
+        if (quantity > 1) {
+            quantity--;
+            updateBooking();
+        }
+    });
+
+    function updateBooking() {
+        document.getElementById("quantity").innerText = quantity;
+        document.getElementById("total-price").innerText = quantity * pricePerSlot;
+        document.getElementById("decrease").disabled = quantity === 1;
+    }
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const stylistButtons = document.querySelectorAll(".stylist-btn");
+
+        stylistButtons.forEach(button => {
+            button.addEventListener("click", function() {
+                stylistButtons.forEach(btn => btn.classList.remove("active"));
+                this.classList.add("active");
+            });
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const stylistButtons = document.querySelectorAll(".stylist-btn");
+        const timeButtons = document.querySelectorAll(".time-btn");
+
+        stylistButtons.forEach(button => {
+            button.addEventListener("click", function() {
+                stylistButtons.forEach(btn => btn.classList.remove("active"));
+                this.classList.add("active");
+            });
+        });
+
+        timeButtons.forEach(button => {
+            button.addEventListener("click", function() {
+                if (!this.classList.contains("disabled")) {
+                    timeButtons.forEach(btn => btn.classList.remove("selected"));
+                    this.classList.add("selected");
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

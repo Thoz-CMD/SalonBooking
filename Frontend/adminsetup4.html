@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEVERSAYCUTZ | สยามสแควร์วัน</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="adminsetup4.css">
+    
+</head>
+<body>
+    
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <div class="navbar-left">
+                <a href="Homepage.html">
+                    <img src="assets/logo.png" alt="NEVERSAYCUTZ" class="logo">
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="service.html">ใหม่ & แนะนำ</a></li>
+                        <li><a href="service.html">ประเภท</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="navbar-right">
+                <div class="search-container">
+                    <input type="text" id="search-bar" class="search-bar" placeholder="ค้นหา..." onkeyup="searchServices()">
+                    <div id="search-results" class="search-results"></div>
+                </div>
+                <a href="login.html" class="login-btn">เข้าสู่ระบบ / สมัครสมาชิก</a> 
+                <span class="icon"><img src="assets/favorite.png" alt="Favorite"></span>
+                <span class="icon"><img src="assets/notification.png" alt="Notification"></span>
+                <span class="icon"><img src="assets/cart.png" alt="Cart"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ส่วนของ Hero Section -->
+    <section class="hero">
+        <img src="assets/siam-hero.png" alt="Siam Square ONE">
+    </section>
+
+    <section class="store-settings-nav">
+        <nav class="admin-nav">
+            <ul>
+                <li ><a href="adminsetup1.html">ร้านค้า</a></li>
+                <li><a href="adminsetup2.html">บริการ</a></li>
+                <li ><a href="adminsetup3.html">ช่างประจำร้าน</a></li>
+                <li class="active"><a href="adminsetup4.html">ชำระเงิน</a></li>
+                <li ><a href="adminsetup5.html">คูปอง</a></li>
+                <li ><a href="adminsetup6.html">แจ้งเตือนลูกค้า</a></li>
+                <li ><a href="adminsetup7.html">สรุป</a></li>
+            </ul>
+        </nav>
+
+        <section class="payment-section">
+            <div class="section-title">ช่องทางการโอนเงิน</div>
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>รูปแบบโอนเงิน</th>
+                        <th>ชื่อช่องทางโอนเงิน</th>
+                        <th>รายละเอียดโอนเงิน</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>บัญชีธนาคาร<br>ไทยพาณิชย์ (SCB)</td>
+                        <td>(บริษัท บาร์เบอร์ช็อป จำกัด)</td>
+                        <td>408-5-31773-5</td>
+                        <td class="icons">
+                            <i class="fas fa-pencil-alt"></i>
+                            <i class="fas fa-trash"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        
+            <button class="btn-disabled">+ เพิ่มช่องทางการชำระเงิน</button>
+        </section>
+        <section class="upload-section">
+            <div class="section-title">ข้อมูลการโอนเงิน</div>
+            
+            <div class="upload-box">
+                <i class="fa-solid fa-image"></i>
+                <p>อัปโหลดสลิป</p>
+                <input type="file" class="upload-input">
+            </div>
+        </section>
+        
+        <section class="payment-time-section">
+            <div class="section-title">กำหนดเวลาชำระเงิน</div>
+        
+            <div class="time-inputs">
+                <div class="time-group">
+                    <label for="hours">ชั่วโมง</label>
+                    <input type="number" id="hours" value="0" min="0">
+                </div>
+                <div class="time-group">
+                    <label for="minutes">นาที</label>
+                    <input type="number" id="minutes" value="15" min="0">
+                </div>
+            </div>
+        </section>
+
+    </section>
+    
+
+<!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <!-- โลโก้ -->
+        <div class="footer-logo">
+            <img src="assets/logo-footer.png" alt="NEVERSAYCUTZ">
+        </div>
+
+        <!-- ข้อมูลสำนักงาน -->
+        <div class="footer-info">
+            <p><strong>Branch Office</strong></p>
+            <p><a href="#">Location – Thonglor 125 34 Sukhumvit Rd, Khlong Toei Nua, Watthana, Bangkok 10110</a></p>
+            <p><a href="#">Call Center – 099-424-4544</a></p>
+            <p><a href="#">Email – info@neversaycutz.com</a></p>
+        </div>
+
+        <!-- ปุ่ม Admin จัดให้อยู่ขวาสุด -->
+        <div class="admin-container">
+            <a href="admin.html" class="admin-link"><strong>Admin</strong></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    let lastScrollTop = 0;
+    const navbar = document.querySelector('.navbar');
+
+    window.addEventListener('scroll', function () {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop && scrollTop > 50) {
+            // เลื่อนลง -> ซ่อน Navbar
+            navbar.classList.add('hidden');
+        } else {
+            // เลื่อนขึ้น -> แสดง Navbar
+            navbar.classList.remove('hidden');
+        }
+
+        lastScrollTop = scrollTop;
+    });
+</script>
+
+<script>
+    // ฟังก์ชันลบการ์ดบริการ
+    function deleteService(element) {
+        // หาการ์ดบริการที่ถูกคลิก
+        let serviceCard = element.closest('.service-card');
+        
+        // ลบการ์ดบริการ
+        serviceCard.remove();
+    }
+</script>
+<script>
+    function addPaymentMethod() {
+        const paymentSection = document.querySelector('.payment-settings');
+
+        // สร้างช่องทางการชำระเงินใหม่
+        const newPaymentMethod = document.createElement('div');
+        newPaymentMethod.classList.add('payment-method');
+        newPaymentMethod.innerHTML = `
+            <h3>ช่องทางการโอนเงินใหม่</h3>
+            <div class="payment-method-details">
+                <div class="payment-image">
+                    <img src="assets/new-bank-logo.png" alt="New Bank" class="payment-logo">
+                </div>
+                <div class="payment-info">
+                    <label for="new-bank-name">ชื่อช่องทางการโอนเงิน</label>
+                    <input type="text" id="new-bank-name" value="ธนาคารใหม่" readonly>
+                    <label for="new-bank-details">รายละเอียดช่องทางการโอนเงิน</label>
+                    <input type="text" id="new-bank-details" value="รายละเอียดใหม่" readonly>
+                </div>
+                <div class="upload-section">
+                    <label for="new-upload-slip" class="upload-box">
+                        <input type="file" id="new-upload-slip" accept="image/*">
+                        <div class="upload-content">
+                            <img id="new-preview-icon" src="assets/upload-icon.png" alt="อัปโหลดสลิป">
+                            <p id="new-upload-text">อัปโหลดสลิป</p>
+                        </div>
+                    </label>
+                </div>
+                <div class="time-limit">
+                    <label for="new-payment-time">กำหนดเวลาชำระเงิน</label>
+                    <input type="number" id="new-payment-time" min="0" max="15" value="0"> นาที
+                </div>
+            </div>
+        `;
+        
+        // เพิ่มช่องทางการชำระเงินใหม่ใน section
+        paymentSection.appendChild(newPaymentMethod);
+    }
+</script>
+
+
+
+</body>
+</html>

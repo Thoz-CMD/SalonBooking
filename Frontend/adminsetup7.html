@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEVERSAYCUTZ | สยามสแควร์วัน</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="adminsetup7.css">
+    <style>
+        .filter-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            color: #000;
+            cursor: pointer;
+        }
+        
+        .filter-btn.active {
+            background-color: #9E7B5D;
+            color: white;
+            border-color: #9E7B5D;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <div class="navbar-left">
+                <a href="Homepage.html">
+                    <img src="assets/logo.png" alt="NEVERSAYCUTZ" class="logo">
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="service.html">ใหม่ & แนะนำ</a></li>
+                        <li><a href="service.html">ประเภท</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="navbar-right">
+                <div class="search-container">
+                    <input type="text" id="search-bar" class="search-bar" placeholder="ค้นหา..." onkeyup="searchServices()">
+                    <div id="search-results" class="search-results"></div>
+                </div>
+                <a href="login.html" class="login-btn">เข้าสู่ระบบ / สมัครสมาชิก</a> 
+                <span class="icon"><img src="assets/favorite.png" alt="Favorite"></span>
+                <span class="icon"><img src="assets/notification.png" alt="Notification"></span>
+                <span class="icon"><img src="assets/cart.png" alt="Cart"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ส่วนของ Hero Section -->
+    <section class="hero">
+        <img src="assets/siam-hero.png" alt="Siam Square ONE">
+    </section>
+
+    <section class="store-settings-nav">
+        <nav class="admin-nav">
+            <ul>
+                <li ><a href="adminsetup1.html">ร้านค้า</a></li>
+                <li><a href="adminsetup2.html">บริการ</a></li>
+                <li ><a href="adminsetup3.html">ช่างประจำร้าน</a></li>
+                <li ><a href="adminsetup4.html">ชำระเงิน</a></li>
+                <li ><a href="adminsetup5.html">คูปอง</a></li>
+                <li ><a href="adminsetup6.html">แจ้งเตือนลูกค้า</a></li>
+                <li class="active"><a href="adminsetup7.html">สรุป</a></li>
+            </ul>
+        </nav>
+        <section class="summary-table">
+            <div class="section-title">ตารางสรุปยอด</div>
+            
+            <!-- ปุ่มกรองข้อมูล -->
+            <div class="filters">
+                <button class="filter-btn active" onclick="showData('daily')">ประจำวัน</button>
+                <button class="filter-btn" onclick="showData('weekly')">ประจำสัปดาห์</button>
+            </div>
+    
+            <!-- ตารางสรุปประจำวัน -->
+            <table class="summary-table-content" id="daily-data">
+                <thead>
+                    <tr>
+                        <th>ช่าง</th>
+                        <th>บริการที่ให้</th>
+                        <th>รายได้รวม</th>
+                        <th>รายละเอียด</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- ช่างบี -->
+                    <tr>
+                        <td>ช่างบี</td>
+                        <td>ตัดผมชาย, สระ+ตัด, ตัดผม + กัน + โกนหนวด</td>
+                        <td>฿4,000</td>
+                        <td><button class="expand-btn" onclick="toggleDetails('barberB')">ขยาย</button></td>
+                    </tr>
+                    <tr id="barberB" class="details-row">
+                        <td colspan="4">
+                            <div class="expanded-details">
+                                <ul>
+                                    <li>ตัดผมชาย <span class="price">500 บาท</span></li>
+                                    <li>ตัดผมชาย <span class="price">500 บาท</span></li>
+                                    <li>ตัดผมชาย <span class="price">500 บาท</span></li>
+                                    <li>สระ+ตัด <span class="price">550 บาท</span></li>
+                                    <li>ตัดผมชาย + กัน + โกนหนวด <span class="price">900 บาท</span></li>
+                                    <li>สระ+ตัด <span class="price">550 บาท</span></li>
+                                    <li>ตัดผมชาย <span class="price">500 บาท</span></li>
+                                </ul>
+                                <div class="total-price">รายได้รวม: <strong>฿4,000</strong></div>
+                            </div>
+                        </td>
+                    </tr>
+    
+                    <!-- ช่างอาร์ต -->
+                    <tr>
+                        <td>ช่างอาร์ต</td>
+                        <td>ตัดผมชาย, สระ+ตัด, ดีไซน์, ตัดผม + กัน + โกนหนวด</td>
+                        <td>฿4,050</td>
+                        <td><button class="expand-btn" onclick="toggleDetails('barberA')">ขยาย</button></td>
+                    </tr>
+                    <tr id="barberA" class="details-row">
+                        <td colspan="4">
+                            <div class="expanded-details">
+                                <ul>
+                                    <li>ตัดผมชาย <span class="price">500 บาท</span></li>
+                                    <li>ตัดผมชาย <span class="price">500 บาท</span></li>
+                                    <li>ดีไซน์ <span class="price">550 บาท</span></li>
+                                    <li>สระ+ตัด <span class="price">550 บาท</span></li>
+                                    <li>ตัดผม + กัน + โกนหนวด <span class="price">900 บาท</span></li>
+                                    <li>สระ+ตัด <span class="price">550 บาท</span></li>
+                                    <li>ตัดผมชาย <span class="price">500 บาท</span></li>
+                                </ul>
+                                <div class="total-price">รายได้รวม: <strong>฿4,050</strong></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ตารางสรุปประจำสัปดาห์ -->
+            <table class="summary-table-content" id="weekly-data" style="display:none;">
+                <thead>
+                    <tr>
+                        <th>ช่าง</th>
+                        <th>บริการที่ให้</th>
+                        <th>รายได้รวม</th>
+                        <th>รายละเอียด</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- ช่างบี -->
+                    <tr>
+                        <td>ช่างบี</td>
+                        <td>ตัดผมชาย, สระ+ตัด, ตัดผม + กัน + โกนหนวด</td>
+                        <td>฿17,250</td>
+                        <td><button class="expand-btn" onclick="toggleDetails('barberB-weekly')">ขยาย</button></td>
+                    </tr>
+                    <tr id="barberB-weekly" class="details-row">
+                        <td colspan="4">
+                            <div class="expanded-details">
+                                <ul>
+                                    <li>ตัดผมชาย <span class="price">500 บาท</span></li>
+                                    <li>ตัดผมชาย <span class="price">500 บาท</span></li>
+                                    <li>ตัดผมชาย <span class="price">500 บาท</span></li>
+                                    <li>สระ+ตัด <span class="price">550 บาท</span></li>
+                                    <li>ตัดผมชาย + กัน + โกนหนวด <span class="price">900 บาท</span></li>
+                                    <li>สระ+ตัด <span class="price">550 บาท</span></li>
+                                    <li>ตัดผมชาย <span class="price">500 บาท</span></li>
+                                    <!-- เพิ่มบริการอื่นๆ 35 รายการ -->
+                                    <li>ตัดผมชาย <span class="price">500 บาท</span></li>
+                                    <li>สระ+ตัด <span class="price">550 บาท</span></li>
+                                    <li>ตัดผมชาย <span class="price">500 บาท</span></li>
+                                    <li>สระ+ตัด <span class="price">550 บาท</span></li>
+                                    <li>ตัดผมชาย <span class="price">500 บาท</span></li>
+                                    <li>ตัดผมชาย <span class="price">500 บาท</span></li>
+                                    <li>สระ+ตัด <span class="price">550 บาท</span></li>
+                                    <li>ตัดผม + กัน + โกนหนวด <span class="price">900 บาท</span></li>
+                                </ul>
+                                <div class="total-price">รายได้รวม: <strong>฿17,250</strong></div>
+                            </div>
+                        </td>
+                    </tr>
+    
+                    <!-- ช่างอาร์ต -->
+                    <tr>
+                        <td>ช่างอาร์ต</td>
+                        <td>ตัดผมชาย, สระ+ตัด, ดีไซน์, ตัดผม + กัน + โกนหนวด</td>
+                        <td>฿15,000</td>
+                        <td><button class="expand-btn" onclick="toggleDetails('barberA-weekly')">ขยาย</button></td>
+                    </tr>
+                    <tr id="barberA-weekly" class="details-row">
+                        <td colspan="4">
+                            <div class="expanded-details">
+                                <ul>
+                                    <li>ตัดผมชาย <span class="price">500 บาท</span></li>
+                                    <li>ตัดผมชาย <span class="price">500 บาท</span></li>
+                                    <li>ดีไซน์ <span class="price">550 บาท</span></li>
+                                    <li>สระ+ตัด <span class="price">550 บาท</span></li>
+                                    <li>ตัดผม + กัน + โกนหนวด <span class="price">900 บาท</span></li>
+                                    <li>สระ+ตัด <span class="price">550 บาท</span></li>
+                                    <li>ตัดผมชาย <span class="price">500 บาท</span></li>
+                                    <!-- เพิ่มบริการอื่นๆ 30 รายการ -->
+                                    <li>ตัดผมชาย <span class="price">500 บาท</span></li>
+                                    <li>สระ+ตัด <span class="price">550 บาท</span></li>
+                                    <li>ตัดผมชาย <span class="price">500 บาท</span></li>
+                                    <li>สระ+ตัด <span class="price">550 บาท</span></li>
+                                    <li>ตัดผมชาย <span class="price">500 บาท</span></li>
+                                    <li>ตัดผมชาย <span class="price">500 บาท</span></li>
+                                    <li>สระ+ตัด <span class="price">550 บาท</span></li>
+                                    <li>ตัดผม + กัน + โกนหนวด <span class="price">900 บาท</span></li>
+                                </ul>
+                                <div class="total-price">รายได้รวม: <strong>฿15,000</strong></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="assets/logo-footer.png" alt="NEVERSAYCUTZ">
+            </div>
+            <div class="footer-info">
+                <p><strong>Branch Office</strong></p>
+                <p><a href="#">Location – Thonglor 125 34 Sukhumvit Rd, Khlong Toei Nua, Watthana, Bangkok 10110</a></p>
+                <p><a href="#">Call Center – 099-424-4544</a></p>
+                <p><a href="#">Email – info@neversaycutz.com</a></p>
+            </div>
+            <div class="admin-container">
+                <a href="admin.html" class="admin-link"><strong>Admin</strong></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showData(type) {
+            const dailyData = document.getElementById('daily-data');
+            const weeklyData = document.getElementById('weekly-data');
+            const dailyButton = document.querySelectorAll('.filter-btn')[0];
+            const weeklyButton = document.querySelectorAll('.filter-btn')[1];
+
+            if (type === 'daily') {
+                dailyData.style.display = 'table';
+                weeklyData.style.display = 'none';
+                dailyButton.classList.add('active');
+                weeklyButton.classList.remove('active');
+            } else {
+                dailyData.style.display = 'none';
+                weeklyData.style.display = 'table';
+                weeklyButton.classList.add('active');
+                dailyButton.classList.remove('active');
+            }
+        }
+
+        function toggleDetails(barberId) {
+            const detailsRow = document.getElementById(barberId);
+            if (detailsRow.style.display === "none" || detailsRow.style.display === "") {
+                detailsRow.style.display = "table-row";
+            } else {
+                detailsRow.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>

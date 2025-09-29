@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEVERSAYCUTZ | สยามสแควร์วัน</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="adminsetup5.css">
+    
+</head>
+<body>
+    
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <div class="navbar-left">
+                <a href="Homepage.html">
+                    <img src="assets/logo.png" alt="NEVERSAYCUTZ" class="logo">
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="service.html">ใหม่ & แนะนำ</a></li>
+                        <li><a href="service.html">ประเภท</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="navbar-right">
+                <div class="search-container">
+                    <input type="text" id="search-bar" class="search-bar" placeholder="ค้นหา..." onkeyup="searchServices()">
+                    <div id="search-results" class="search-results"></div>
+                </div>
+                <a href="login.html" class="login-btn">เข้าสู่ระบบ / สมัครสมาชิก</a> 
+                <span class="icon"><img src="assets/favorite.png" alt="Favorite"></span>
+                <span class="icon"><img src="assets/notification.png" alt="Notification"></span>
+                <span class="icon"><img src="assets/cart.png" alt="Cart"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ส่วนของ Hero Section -->
+    <section class="hero">
+        <img src="assets/siam-hero.png" alt="Siam Square ONE">
+    </section>
+
+    <section class="store-settings-nav">
+        <nav class="admin-nav">
+            <ul>
+                <li ><a href="adminsetup1.html">ร้านค้า</a></li>
+                <li><a href="adminsetup2.html">บริการ</a></li>
+                <li ><a href="adminsetup3.html">ช่างประจำร้าน</a></li>
+                <li ><a href="adminsetup4.html">ชำระเงิน</a></li>
+                <li class="active"><a href="adminsetup5.html">คูปอง</a></li>
+                <li ><a href="adminsetup6.html">แจ้งเตือนลูกค้า</a></li>
+                <li ><a href="adminsetup7.html">สรุป</a></li>
+            </ul>
+        </nav>
+
+        <section class="coupon-section">
+            <div class="section-title">ตั้งค่าคูปอง</div>
+        
+            <!-- คูปองเริ่มต้น -->
+            <div class="coupon-item">
+                <div class="coupon-label">คูปองส่วนลด</div>
+                <div class="coupon-description">ส่วนลดลูกค้าใหม่ 10%</div>
+                <div class="coupon-actions">
+                    <i class="fa-solid fa-pencil-alt" onclick="editCoupon(this)"></i>
+                    <i class="fa-solid fa-trash" onclick="deleteCoupon(this)"></i>
+                </div>
+            </div>
+        
+            <!-- เพิ่มคูปอง -->
+            <button class="btn-add" onclick="addCoupon()">+ เพิ่ม</button>
+        </section>
+        
+        <!-- Modal สำหรับแก้ไขคูปอง -->
+        <div class="modal" id="editModal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>แก้ไขคูปอง</h2>
+                <label for="coupon-name">ชื่อคูปอง:</label>
+                <input type="text" id="coupon-name" value="ส่วนลดลูกค้าใหม่ 10%">
+                <label for="coupon-description">รายละเอียดคูปอง:</label>
+                <input type="text" id="coupon-description" value="ลูกค้าใหม่ 10%">
+                <button onclick="saveCoupon()">บันทึก</button>
+            </div>
+        </div>
+        
+
+    </section>
+    
+
+<!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <!-- โลโก้ -->
+        <div class="footer-logo">
+            <img src="assets/logo-footer.png" alt="NEVERSAYCUTZ">
+        </div>
+
+        <!-- ข้อมูลสำนักงาน -->
+        <div class="footer-info">
+            <p><strong>Branch Office</strong></p>
+            <p><a href="#">Location – Thonglor 125 34 Sukhumvit Rd, Khlong Toei Nua, Watthana, Bangkok 10110</a></p>
+            <p><a href="#">Call Center – 099-424-4544</a></p>
+            <p><a href="#">Email – info@neversaycutz.com</a></p>
+        </div>
+
+        <!-- ปุ่ม Admin จัดให้อยู่ขวาสุด -->
+        <div class="admin-container">
+            <a href="admin.html" class="admin-link"><strong>Admin</strong></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // ฟังก์ชันเพิ่มคูปอง
+    function addCoupon() {
+        const couponSection = document.querySelector('.coupon-section');
+        const newCoupon = document.createElement('div');
+        newCoupon.classList.add('coupon-item');
+        newCoupon.innerHTML = `
+            <div class="coupon-label">คูปองส่วนลด</div>
+            <div class="coupon-description">ส่วนลดลูกค้าใหม่ 10%</div>
+            <div class="coupon-actions">
+                <i class="fa-solid fa-pencil-alt" onclick="editCoupon(this)"></i>
+                <i class="fa-solid fa-trash" onclick="deleteCoupon(this)"></i>
+            </div>
+        `;
+        couponSection.appendChild(newCoupon);
+    }
+
+    // ฟังก์ชันแก้ไขคูปอง
+    function editCoupon(icon) {
+        const couponItem = icon.closest('.coupon-item');
+        const couponLabel = couponItem.querySelector('.coupon-label').innerText;
+        const couponDescription = couponItem.querySelector('.coupon-description').innerText;
+
+        // แสดง modal
+        document.getElementById('editModal').style.display = 'block';
+
+        // ใส่ข้อมูลใน modal
+        document.getElementById('coupon-name').value = couponLabel;
+        document.getElementById('coupon-description').value = couponDescription;
+
+        // ฟังก์ชันบันทึกการแก้ไข
+        window.saveCoupon = function() {
+            const newCouponLabel = document.getElementById('coupon-name').value;
+            const newCouponDescription = document.getElementById('coupon-description').value;
+
+            // แก้ไขข้อมูลในคูปอง
+            couponItem.querySelector('.coupon-label').innerText = newCouponLabel;
+            couponItem.querySelector('.coupon-description').innerText = newCouponDescription;
+
+            // ปิด modal
+            closeModal();
+        }
+    }
+
+    // ฟังก์ชันลบคูปอง
+    function deleteCoupon(icon) {
+        const couponItem = icon.closest('.coupon-item');
+        couponItem.remove();
+    }
+
+    // ฟังก์ชันปิด modal
+    function closeModal() {
+        document.getElementById('editModal').style.display = 'none';
+    }
+</script>
+
+
+
+
+
+</body>
+</html>

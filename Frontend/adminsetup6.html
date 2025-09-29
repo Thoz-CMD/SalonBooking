@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEVERSAYCUTZ | สยามสแควร์วัน</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="adminsetup6.css">
+    
+</head>
+<body>
+    
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <div class="navbar-left">
+                <a href="Homepage.html">
+                    <img src="assets/logo.png" alt="NEVERSAYCUTZ" class="logo">
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="service.html">ใหม่ & แนะนำ</a></li>
+                        <li><a href="service.html">ประเภท</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="navbar-right">
+                <div class="search-container">
+                    <input type="text" id="search-bar" class="search-bar" placeholder="ค้นหา..." onkeyup="searchServices()">
+                    <div id="search-results" class="search-results"></div>
+                </div>
+                <a href="login.html" class="login-btn">เข้าสู่ระบบ / สมัครสมาชิก</a> 
+                <span class="icon"><img src="assets/favorite.png" alt="Favorite"></span>
+                <span class="icon"><img src="assets/notification.png" alt="Notification"></span>
+                <span class="icon"><img src="assets/cart.png" alt="Cart"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ส่วนของ Hero Section -->
+    <section class="hero">
+        <img src="assets/siam-hero.png" alt="Siam Square ONE">
+    </section>
+
+    <section class="store-settings-nav">
+        <nav class="admin-nav">
+            <ul>
+                <li ><a href="adminsetup1.html">ร้านค้า</a></li>
+                <li><a href="adminsetup2.html">บริการ</a></li>
+                <li ><a href="adminsetup3.html">ช่างประจำร้าน</a></li>
+                <li ><a href="adminsetup4.html">ชำระเงิน</a></li>
+                <li ><a href="adminsetup5.html">คูปอง</a></li>
+                <li class="active"><a href="adminsetup6.html">แจ้งเตือนลูกค้า</a></li>
+                <li ><a href="adminsetup7.html">สรุป</a></li>
+            </ul>
+        </nav>
+
+        <section class="notification-settings">
+            <div class="section-title">ตั้งค่าการแจ้งเตือน</div>
+        
+            <div class="notification-item">
+                <div class="notification-label">แจ้งเตือนผ่านอีเมล</div>
+                <div class="notification-description">ระบบจะส่งอีเมลเตือนเมื่อถึงเวลาคำสั่งการต่างๆ</div>
+                <div class="notification-actions">
+                    <i class="fa-solid fa-pencil-alt" onclick="editNotification(this)"></i>
+                    <i class="fa-solid fa-trash" onclick="deleteNotification(this)"></i>
+                </div>
+            </div>
+        
+            <div class="notification-item">
+                <div class="notification-label">1. ส่งข้อมูลลูกค้ากำลังจอง</div>
+                <div class="notification-description">ข้อมูลลูกค้าที่กำลังจองจะถูกส่งผ่านอีเมล</div>
+                <div class="notification-actions">
+                    <i class="fa-solid fa-pencil-alt" onclick="editNotification(this)"></i>
+                    <i class="fa-solid fa-trash" onclick="deleteNotification(this)"></i>
+                </div>
+            </div>
+        
+            <div class="notification-item">
+                <div class="notification-label">2. ส่งข้อมูลลูกค้ารับบริการ</div>
+                <div class="notification-description">ข้อมูลลูกค้าที่รับบริการจะถูกส่งผ่านอีเมล</div>
+                <div class="notification-actions">
+                    <i class="fa-solid fa-pencil-alt" onclick="editNotification(this)"></i>
+                    <i class="fa-solid fa-trash" onclick="deleteNotification(this)"></i>
+                </div>
+            </div>
+        
+            <button class="btn-add" onclick="addNotification()">+ เพิ่ม</button>
+            <button class="btn-save" onclick="showSuccessModal()">บันทึก</button>
+        </section>
+        
+        <!-- Modal สำหรับแก้ไขการแจ้งเตือน -->
+        <div class="modal" id="editModal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>แก้ไขการแจ้งเตือน</h2>
+                <label for="notification-name">ชื่อการแจ้งเตือน:</label>
+                <input type="text" id="notification-name" value="แจ้งเตือนผ่านอีเมล">
+                <label for="notification-description">รายละเอียดการแจ้งเตือน:</label>
+                <input type="text" id="notification-description" value="ระบบจะส่งอีเมลเตือนเมื่อถึงเวลาคำสั่งการต่างๆ">
+                <button onclick="saveNotification()">บันทึก</button>
+            </div>
+        </div>
+        
+        <!-- Success Popup -->
+        
+
+    </section>
+    
+    
+
+<!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <!-- โลโก้ -->
+        <div class="footer-logo">
+            <img src="assets/logo-footer.png" alt="NEVERSAYCUTZ">
+        </div>
+
+        <!-- ข้อมูลสำนักงาน -->
+        <div class="footer-info">
+            <p><strong>Branch Office</strong></p>
+            <p><a href="#">Location – Thonglor 125 34 Sukhumvit Rd, Khlong Toei Nua, Watthana, Bangkok 10110</a></p>
+            <p><a href="#">Call Center – 099-424-4544</a></p>
+            <p><a href="#">Email – info@neversaycutz.com</a></p>
+        </div>
+
+        <!-- ปุ่ม Admin จัดให้อยู่ขวาสุด -->
+        <div class="admin-container">
+            <a href="admin.html" class="admin-link"><strong>Admin</strong></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // ฟังก์ชันเพิ่มการแจ้งเตือน
+    function addNotification() {
+        const notificationSection = document.querySelector('.notification-settings');
+        const newNotification = document.createElement('div');
+        newNotification.classList.add('notification-item');
+        newNotification.innerHTML = `
+            <div class="notification-label">แจ้งเตือนผ่านอีเมล</div>
+            <div class="notification-description">ระบบจะส่งอีเมลเตือนเมื่อถึงเวลาคำสั่งการต่างๆ</div>
+            <div class="notification-actions">
+                <i class="fa-solid fa-pencil-alt" onclick="editNotification(this)"></i>
+                <i class="fa-solid fa-trash" onclick="deleteNotification(this)"></i>
+            </div>
+        `;
+        notificationSection.appendChild(newNotification);
+    }
+
+    // ฟังก์ชันแก้ไขการแจ้งเตือน
+    function editNotification(icon) {
+        const notificationItem = icon.closest('.notification-item');
+        const notificationLabel = notificationItem.querySelector('.notification-label').innerText;
+        const notificationDescription = notificationItem.querySelector('.notification-description').innerText;
+
+        // แสดง modal
+        document.getElementById('editModal').style.display = 'block';
+
+        // ใส่ข้อมูลใน modal
+        document.getElementById('notification-name').value = notificationLabel;
+        document.getElementById('notification-description').value = notificationDescription;
+
+        // ฟังก์ชันบันทึกการแก้ไข
+        window.saveNotification = function() {
+            const newNotificationLabel = document.getElementById('notification-name').value;
+            const newNotificationDescription = document.getElementById('notification-description').value;
+
+            // แก้ไขข้อมูลในการแจ้งเตือน
+            notificationItem.querySelector('.notification-label').innerText = newNotificationLabel;
+            notificationItem.querySelector('.notification-description').innerText = newNotificationDescription;
+
+            // ปิด modal
+            closeModal();
+        }
+    }
+
+    // ฟังก์ชันลบการแจ้งเตือน
+    function deleteNotification(icon) {
+        const notificationItem = icon.closest('.notification-item');
+        notificationItem.remove();
+    }
+
+    // ฟังก์ชันปิด modal
+    function closeModal() {
+        document.getElementById('editModal').style.display = 'none';
+    }
+</script>
+<script>
+    // ฟังก์ชันแสดง popup เมื่อกดปุ่มบันทึก
+    function showSuccessModal() {
+        document.getElementById('successPopup').style.display = 'flex';
+    }
+
+    // ฟังก์ชันปิด popup
+    function closeSuccessPopup() {
+        document.getElementById('successPopup').style.display = 'none';
+    }
+
+    // ฟังก์ชันเพิ่มการแจ้งเตือน
+    function addNotification() {
+        const notificationSection = document.querySelector('.notification-settings');
+        const newNotification = document.createElement('div');
+        newNotification.classList.add('notification-item');
+        newNotification.innerHTML = `
+            <div class="notification-label">แจ้งเตือนผ่านอีเมล</div>
+            <div class="notification-description">ระบบจะส่งอีเมลเตือนเมื่อถึงเวลาคำสั่งการต่างๆ</div>
+            <div class="notification-actions">
+                <i class="fa-solid fa-pencil-alt" onclick="editNotification(this)"></i>
+                <i class="fa-solid fa-trash" onclick="deleteNotification(this)"></i>
+            </div>
+        `;
+        notificationSection.appendChild(newNotification);
+    }
+
+    // ฟังก์ชันแก้ไขการแจ้งเตือน
+    function editNotification(icon) {
+        const notificationItem = icon.closest('.notification-item');
+        const notificationLabel = notificationItem.querySelector('.notification-label').innerText;
+        const notificationDescription = notificationItem.querySelector('.notification-description').innerText;
+
+        // แสดง modal
+        document.getElementById('editModal').style.display = 'block';
+
+        // ใส่ข้อมูลใน modal
+        document.getElementById('notification-name').value = notificationLabel;
+        document.getElementById('notification-description').value = notificationDescription;
+
+        // ฟังก์ชันบันทึกการแก้ไข
+        window.saveNotification = function() {
+            const newNotificationLabel = document.getElementById('notification-name').value;
+            const newNotificationDescription = document.getElementById('notification-description').value;
+
+            // แก้ไขข้อมูลในการแจ้งเตือน
+            notificationItem.querySelector('.notification-label').innerText = newNotificationLabel;
+            notificationItem.querySelector('.notification-description').innerText = newNotificationDescription;
+
+            // ปิด modal
+            closeModal();
+        }
+    }
+
+    // ฟังก์ชันลบการแจ้งเตือน
+    function deleteNotification(icon) {
+        const notificationItem = icon.closest('.notification-item');
+        notificationItem.remove();
+    }
+
+    // ฟังก์ชันปิด modal
+    function closeModal() {
+        document.getElementById('editModal').style.display = 'none';
+    }
+</script>
+
+
+
+</body>
+</html>

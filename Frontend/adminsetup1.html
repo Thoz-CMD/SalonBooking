@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEVERSAYCUTZ | สยามสแควร์วัน</title>
+    <link rel="stylesheet" href="adminsetup1.css">
+</head>
+<body>
+    
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <div class="navbar-left">
+                <a href="Homepage.html">
+                    <img src="assets/logo.png" alt="NEVERSAYCUTZ" class="logo">
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="service.html">ใหม่ & แนะนำ</a></li>
+                        <li><a href="service.html">ประเภท</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="navbar-right">
+                <div class="search-container">
+                    <input type="text" id="search-bar" class="search-bar" placeholder="ค้นหา..." onkeyup="searchServices()">
+                    <div id="search-results" class="search-results"></div>
+                </div>
+                <a href="login.html" class="login-btn">เข้าสู่ระบบ / สมัครสมาชิก</a> 
+                <span class="icon"><img src="assets/favorite.png" alt="Favorite"></span>
+                <span class="icon"><img src="assets/notification.png" alt="Notification"></span>
+                <span class="icon"><img src="assets/cart.png" alt="Cart"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ส่วนของ Hero Section -->
+    <section class="hero">
+        <img src="assets/siam-hero.png" alt="Siam Square ONE">
+    </section>
+
+    <section class="store-settings-nav">
+        <nav class="admin-nav">
+            <ul>
+                <li class="active"><a href="adminsetup1.html">ร้านค้า</a></li>
+                <li ><a href="adminsetup2.html">บริการ</a></li>
+                <li ><a href="adminsetup3.html">ช่างประจำร้าน</a></li>
+                <li ><a href="adminsetup4.html">ชำระเงิน</a></li>
+                <li ><a href="adminsetup5.html">คูปอง</a></li>
+                <li ><a href="adminsetup6.html">แจ้งเตือนลูกค้า</a></li>
+                <li ><a href="adminsetup7.html">สรุป</a></li>
+            </ul>
+        </nav>
+    </section>
+
+    <section class="store-settings">
+        <h2>ตั้งค่าร้านค้า</h2>
+        
+        <div class="store-container">
+            <div class="store-image">
+                <h3>หน้าตัวเลือก</h3>
+                <p class="image-label">รูปภาพหน้าปก</p>
+                <img src="assets/branch1.png" alt="ร้านค้า" class="store-thumbnail">
+            </div>
+    
+            <div class="store-info">
+                <label for="store-name">ชื่อร้านค้า</label>
+                <input type="text" id="store-name" value="NEVERSAYCUTZ (Siam Square ONE)">
+    
+                <label for="store-location">ที่ตั้ง</label>
+                <input type="text" id="store-location" value="สยาม สแควร์วัน">
+    
+                <label for="store-contact">เบอร์ติดต่อ</label>
+                <input type="text" id="store-contact" value="065-928-0572">
+            </div>
+        </div>
+    </section>
+    <section class="booking-info">
+        <h3>ข้อมูลการรายการจอง <span class="sub-text">(ตั้งค่าการใช้งานตัวเลือกการกรอกข้อมูล สำหรับลูกค้าจองคิว)</span></h3>
+    
+        <div class="form-settings" id="form-settings">
+            <div class="form-row">
+                <span class="drag-icon">≡</span>
+                <label>ชื่อผู้จอง</label>
+                <span class="toggle-lock"> บังคับกรอก</span>
+                <span class="delete-icon" onclick="deleteRow(this)">🗑</span>
+            </div>
+    
+            <div class="form-row">
+                <span class="drag-icon">≡</span>
+                <label>นามสกุล</label>
+                <span class="toggle-lock"> บังคับกรอก</span>
+                <span class="delete-icon" onclick="deleteRow(this)">🗑</span>
+            </div>
+    
+            <div class="form-row">
+                <span class="drag-icon">≡</span>
+                <label>เบอร์โทรศัพท์</label>
+                <span class="toggle-lock"> บังคับกรอก</span>
+                <span class="delete-icon" onclick="deleteRow(this)">🗑</span>
+            </div>
+    
+            <div class="form-row">
+                <span class="drag-icon">≡</span>
+                <label>อีเมล</label>
+                <span class="toggle-lock"> บังคับกรอก</span>
+                <span class="delete-icon" onclick="deleteRow(this)">🗑</span>
+            </div>
+        </div>
+    
+        <div class="add-more" onclick="addRow()">
+            <span>เพิ่ม +</span>
+        </div>
+    </section>
+     
+
+<!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <!-- โลโก้ -->
+        <div class="footer-logo">
+            <img src="assets/logo-footer.png" alt="NEVERSAYCUTZ">
+        </div>
+
+        <!-- ข้อมูลสำนักงาน -->
+        <div class="footer-info">
+            <p><strong>Branch Office</strong></p>
+            <p><a href="#">Location – Thonglor 125 34 Sukhumvit Rd, Khlong Toei Nua, Watthana, Bangkok 10110</a></p>
+            <p><a href="#">Call Center – 099-424-4544</a></p>
+            <p><a href="#">Email – info@neversaycutz.com</a></p>
+        </div>
+
+        <!-- ปุ่ม Admin จัดให้อยู่ขวาสุด -->
+        <div class="admin-container">
+            <a href="admin.html" class="admin-link"><strong>Admin</strong></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    let lastScrollTop = 0;
+    const navbar = document.querySelector('.navbar');
+
+    window.addEventListener('scroll', function () {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop && scrollTop > 50) {
+            // เลื่อนลง -> ซ่อน Navbar
+            navbar.classList.add('hidden');
+        } else {
+            // เลื่อนขึ้น -> แสดง Navbar
+            navbar.classList.remove('hidden');
+        }
+
+        lastScrollTop = scrollTop;
+    });
+</script>
+
+<script>
+    // ทำให้ฟังก์ชันอยู่ใน `window` เพื่อให้สามารถเรียกใช้งานได้จาก HTML
+    window.deleteRow = function(element) {
+        console.log("กำลังลบแถว...");
+        let row = element.parentElement;
+        row.remove();
+        console.log("ลบสำเร็จ!");
+    };
+
+    window.addRow = function() {
+        console.log("เพิ่มแถวใหม่...");
+        const formSettings = document.getElementById("form-settings");
+
+        if (!formSettings) {
+            console.error("ไม่พบ element #form-settings");
+            return;
+        }
+
+        // สร้าง Element ใหม่
+        const newRow = document.createElement("div");
+        newRow.classList.add("form-row");
+        newRow.innerHTML = `
+            <span class="drag-icon">≡</span>
+            <label>ข้อมูลใหม่</label>
+            <span class="toggle-lock"> บังคับกรอก</span>
+            <span class="delete-icon" onclick="deleteRow(this)">🗑</span>
+        `;
+
+        formSettings.appendChild(newRow);
+        console.log("เพิ่มแถวสำเร็จ!");
+    };
+</script>
+
+</body>
+</html>

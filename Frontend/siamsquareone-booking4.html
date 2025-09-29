@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>จองคิว | NEVERSAYCUTZ</title>
+    <link rel="stylesheet" href="siamsquareone-booking4.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <div class="navbar-left">
+                <a href="Homepage.html">
+                    <img src="assets/logo.png" alt="NEVERSAYCUTZ" class="logo">
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="service.html">ใหม่ & แนะนำ</a></li>
+                        <li><a href="service.html">ประเภท</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="navbar-right">
+                <div class="search-container">
+                    <input type="text" id="search-bar" class="search-bar" placeholder="ค้นหา..." onkeyup="searchServices()">
+                    <div id="search-results" class="search-results"></div>
+                </div>
+                <a href="login.html" class="login-btn">เข้าสู่ระบบ / สมัครสมาชิก</a> 
+                <span class="icon"><img src="assets/favorite.png" alt="Favorite"></span>
+                <span class="icon"><img src="assets/notification.png" alt="Notification"></span>
+                <span class="icon"><img src="assets/cart.png" alt="Cart"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Booking Progress -->
+    <section class="booking-progress">
+        <div class="step active">1</div>
+        <div class="line"></div>
+        <div class="step active">2</div>
+        <div class="line"></div>
+        <div class="step">3</div>
+        <div class="line"></div>
+        <div class="step">4</div>
+    </section>
+
+    <!-- Booking Details -->
+    <section class="booking-details">
+        <button class="back-btn" onclick="window.location.href='siamsquareone-booking3.html'">กลับ</button>
+        <h2>NEVERSAYCUTZ Siam Square One</h2>
+        
+        <section class="summary-section" id="summary-section">
+            <div class="summary-card">
+                <img src="assets/stylist-b.png" alt="ช่างบี" class="stylist-img">
+                <div class="summary-details">
+                    <h3>ตัดผมชาย</h3>
+                    <p class="stylist-name">ช่างบี - ตัดผม</p>
+                    <p><img src="assets/calendar-icon.png" class="icon"> วันจันทร์ 3 มี.ค. 2568</p>
+                    <p><img src="assets/clock-icon.png" class="icon"> 17:00</p>
+                    <p><img src="assets/person-icon.png" class="icon"> <span id="queue-count">1</span> คิว</p>
+        
+                    <div class="quantity-container">
+                        <button class="quantity-btn" id="decrease" onclick="updateQuantity(-1)">-</button>
+                        <span class="quantity-display" id="quantity">1</span>
+                        <button class="quantity-btn" id="increase" onclick="updateQuantity(1)">+</button>
+                        <p class="price-display" id="total-price">฿500</p>
+                    </div>
+                </div>
+                <button class="delete-btn" onclick="deleteBooking()">
+                    <img src="assets/delete-icon.png" alt="ลบ">
+                </button>
+            </div>
+        
+            <button class="confirm-btn" id="confirm-btn" onclick="window.location.href='siamsquareone-booking5.html'">ยืนยันการจอง (฿500)</button>
+        </section>    
+        <p class="add-more" onclick="window.location.href='siamsquareone-booking2.html'" style="cursor: pointer;">จองเพิ่ม</p>
+    </section>
+        
+
+<!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <!-- โลโก้ -->
+        <div class="footer-logo">
+            <img src="assets/logo-footer.png" alt="NEVERSAYCUTZ">
+        </div>
+
+        <!-- ข้อมูลสำนักงาน -->
+        <div class="footer-info">
+            <p><strong>Branch Office</strong></p>
+            <p><a href="#">Location – Thonglor 125 34 Sukhumvit Rd, Khlong Toei Nua, Watthana, Bangkok 10110</a></p>
+            <p><a href="#">Call Center – 099-424-4544</a></p>
+            <p><a href="#">Email – info@neversaycutz.com</a></p>
+        </div>
+
+        <!-- ปุ่ม Admin จัดให้อยู่ขวาสุด -->
+        <div class="admin-container">
+            <a href="admin.html" class="admin-link"><strong>Admin</strong></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    let lastScrollTop = 0;
+    const navbar = document.querySelector('.navbar');
+
+    window.addEventListener('scroll', function () {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop && scrollTop > 50) {
+            // เลื่อนลง -> ซ่อน Navbar
+            navbar.classList.add('hidden');
+        } else {
+            // เลื่อนขึ้น -> แสดง Navbar
+            navbar.classList.remove('hidden');
+        }
+
+        lastScrollTop = scrollTop;
+    });
+</script>
+
+<script>
+    function deleteBooking() {
+        const summarySection = document.getElementById("summary-section");
+        if (summarySection) {
+            summarySection.remove(); // ลบ section ออกจาก DOM
+        }
+    }
+
+    // ตรวจสอบการปิดปุ่มลดเมื่อโหลดหน้าเว็บ
+    document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("decrease").disabled = (quantity === 1);
+    });
+</script>
+<script>
+    let quantity = 1;
+    const pricePerUnit = 500;
+
+    function updateQuantity(change) {
+        quantity += change;
+        if (quantity < 1) {
+            quantity = 1; // ป้องกันจำนวนติดลบ
+        }
+
+        // อัปเดต UI
+        document.getElementById("quantity").textContent = quantity;
+        document.getElementById("total-price").textContent = `฿${quantity * pricePerUnit}`;
+        document.getElementById("confirm-btn").textContent = `ยืนยันการจอง (฿${quantity * pricePerUnit})`;
+        document.getElementById("queue-count").textContent = quantity; // อัปเดตจำนวนคิว
+
+        // ปรับปุ่มลดให้ไม่สามารถกดได้เมื่อ quantity = 1
+        document.getElementById("decrease").disabled = (quantity === 1);
+    }
+
+    function deleteBooking() {
+        const confirmDelete = window.confirm("คุณต้องการลบการจองนี้หรือไม่?");
+        
+        if (confirmDelete) {
+            const summarySection = document.getElementById("summary-section");
+            if (summarySection) {
+                summarySection.remove(); // ลบ section ออกจาก DOM
+            }
+        }
+    }
+
+    // ตรวจสอบการปิดปุ่มลดเมื่อโหลดหน้าเว็บ
+    document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("decrease").disabled = (quantity === 1);
+    });
+</script>
+
+
+</body>
+</html>

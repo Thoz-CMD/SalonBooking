@@ -1,0 +1,318 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 10px 20px;
+    border-bottom: 2px solid #ddd;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* เมื่อ Navbar หุบลง */
+.navbar.hidden {
+    transform: translateY(-100%);
+}
+
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-left .logo {
+    height: 40px;
+    margin-right: 20px;
+}
+
+.navbar-left nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-left nav ul li {
+    display: inline;
+}
+
+.navbar-left nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.navbar-left nav ul li input {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+
+.navbar-right {
+    display: flex;
+    gap: 20px; /* เพิ่มช่องว่างระหว่างไอคอน */
+    align-items: center;
+    margin-right: 30px; /* ขยับออกจากขอบขวา */
+    padding-right: 10px; /* เพิ่ม Padding ด้านขวา */
+}
+
+
+.navbar-right a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.navbar-right .icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.navbar-right .icon img {
+    width: 100%;
+    height: 100%;
+}
+
+.search-bar {
+    padding: 8px 14px;  /* ปรับขนาดภายในให้เล็กลง */
+    border: 1px solid #ccc;
+    border-radius: 20px; /* ปรับให้ขอบโค้งมนแต่ไม่มากเกินไป */
+    width: 220px; /* กำหนดความกว้างใหม่ */
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.search-bar:focus {
+    width: 260px; /* ขยายขึ้นเมื่อโฟกัส */
+    border-color: #ff6600; /* เปลี่ยนสีขอบให้ชัดขึ้น */
+    box-shadow: 0 0 6px rgba(255, 102, 0, 0.4); /* เพิ่มเงาเล็กน้อย */
+}
+
+/* Hero Section */
+.hero img {
+    width: 100%;
+    height: auto;
+}
+
+.store-settings-nav{
+    padding-top: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.admin-nav {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.admin-nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 28px;
+}
+
+.admin-nav ul li {
+    margin-right: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.admin-nav ul li a {
+    text-decoration: none;
+    color: black;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.admin-nav ul li.active a {
+    color: #b07d50;
+    border-bottom: 3px solid #b07d50;
+}
+.store-settings {
+    max-width: 800px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 1px;
+}
+
+
+.store-container {
+    display: flex;
+    gap: 20px;
+}
+
+.store-image {
+    width: 35%;
+}
+
+.store-thumbnail {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.store-info {
+    margin-top: 90px;
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+}
+
+.store-info label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.store-info input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.booking-info {
+    max-width: 800px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.sub-text {
+    font-size: 14px;
+    color: gray;
+}
+
+.form-settings {
+    margin-top: 10px;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.drag-icon {
+    cursor: grab;
+    font-size: 18px;
+}
+
+label {
+    flex: 1;
+    font-size: 16px;
+}
+
+.toggle-lock {
+    font-size: 14px;
+    color: black;
+    font-weight: bold;
+}
+
+.delete-icon {
+    cursor: pointer;
+    color: red;
+}
+
+.add-more {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+
+/* Footer */
+footer {
+    background: black; /* พื้นหลังสีดำ */
+    color: white;
+    padding: 20px 40px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* คอนเทนเนอร์ของ Footer */
+.footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 85%;
+    max-width: 1200px;
+}
+
+/* โลโก้ */
+.footer-logo img {
+    width: 250px; /* ปรับขนาดโลโก้ให้พอดี */
+    height: auto;
+}
+
+/* ข้อมูลสำนักงาน */
+.footer-info {
+    flex: 1;
+    padding-left: 40px;
+    text-align: left;
+}
+
+/* ปรับลิงก์ใน Footer */
+.footer-info a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-info a:hover {
+    text-decoration: underline;
+}
+
+/* แยกปุ่ม Admin ไปทางขวาสุด */
+.admin-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 150px; /* กำหนดขนาดพื้นที่ให้ปุ่ม Admin */
+}
+
+/* ปรับสไตล์ของปุ่ม Admin */
+.admin-link {
+    font-weight: bold;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    background: #d5d5d5; /* สีส้ม */
+    border-radius: 5px; /* ทำให้มีขอบมนเล็กน้อย */
+    transition: background 0.3s ease-in-out;
+}
+
+/* เมื่อโฮเวอร์ ปุ่มจะสว่างขึ้น */
+.admin-link:hover {
+    background: #ff4500;
+}

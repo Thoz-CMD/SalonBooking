@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEVERSAYCUTZ | สยามสแควร์วัน</title>
+    <link rel="stylesheet" href="siamsquareone.css">
+</head>
+<body>
+    
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <div class="navbar-left">
+                <a href="Homepage.html">
+                    <img src="assets/logo.png" alt="NEVERSAYCUTZ" class="logo">
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="service.html">ใหม่ & แนะนำ</a></li>
+                        <li><a href="service.html">ประเภท</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="navbar-right">
+                <div class="search-container">
+                    <input type="text" id="search-bar" class="search-bar" placeholder="ค้นหา..." onkeyup="searchServices()">
+                    <div id="search-results" class="search-results"></div>
+                </div>
+                <a href="login.html" class="login-btn">เข้าสู่ระบบ / สมัครสมาชิก</a> 
+                <span class="icon"><img src="assets/favorite.png" alt="Favorite"></span>
+                <span class="icon"><img src="assets/notification.png" alt="Notification"></span>
+                <span class="icon"><img src="assets/cart.png" alt="Cart"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ส่วนของ Hero Section -->
+    <section class="hero">
+        <img src="assets/themall-hero.png" alt="Siam Square ONE">
+    </section>
+
+    <!-- ส่วนของรายละเอียดสาขา -->
+    <section class="branch-details">
+        <h1>NEVERSAYCUTZ The Mall Lifestore Bang Khae</h1>
+        <p><strong>ที่อยู่:</strong> 1st Floor 518 Phet Kasem Rd., Bang Khae Nuea, Bang Khae District, Bangkok 10600</p>
+        <p><strong>โทร:</strong> 063-9239631</p>
+        <p><strong>Google Map:</strong> <a href="https://maps.app.goo.gl/t73tBz4mXmhma4sJ8" target="_blank">กดที่นี่</a></p>
+        
+        <img src="assets/themall-shop.png" alt="บรรยากาศร้าน">
+
+        <h2>ร้านตัดผมชาย NEVERSAYCUTZ เดอะมอลล์ไลฟ์สโตร์ บางแค (The Mall Lifestore Bang Khae)</h2>
+        <p>เดอะมอลล์ไลฟ์สโตร์ บางแค ศูนย์กลางแฟชั่นชั้นนำ ทั้งเครื่องแต่งกาย, ร้านอาหาร, แหล่งรวมทุกสิ่งย่านฝั่งธน เส้นถนนเพชรเกษม Neversaycutz พร้อมแล้วที่จะเปิดบริการให้ชาวฝั่งธน ได้ปรับลุค ตกแต่งทรงผม อย่างเท่และมีสไตล์ พร้อมกับการรีโนเวทครั้งใหญ่ พร้อมกับชื่อใหม่ เอ็ม ไลฟ์สโตร์ เพื่อรองรับกลุ่มลูกค้าไม่ว่าจะเป็น เด็ก, วัยรุ่น หรือ ผู้ใหญ่ Neversaycutz ที่มากกว่า 30 สาขา พร้อมเปิดต้อนรับและให้บริการในรูปแบบใหม่ โทนร้านสีฟ้า เห็นชัดเด่นสะดุดตา ภายใน ชั้น 1 โซนเสื้อผ้าบุรุษ</p>
+        <p>เดอะมอลล์ไลฟ์สโตร์ บางแค เดินทางได้ง่ายๆ  ติดรถไฟฟ้าสายสีน้ำเงิน การเข้าถึงแสนง่ายพร้อมทางเชื่อมเดินเข้าห้าง พร้อมร้านอาหารชั้นน้ำ หลากหลายแบรนด์เสื้อผ้า</p>
+        <p></p>
+
+        <h3>เวลาเปิด-ปิด:</h3>
+        <p>เปิดบริการทุกวันวันอาทิตย์ – วันพฤหัสบดี เวลา 10.00 – 21.00 น.วันศุกร์ – วันเสาร์ เวลา 10.00 – 22.00 น.</p>
+
+        <button class="book-button">จองคิว</button>
+    </section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <!-- โลโก้ -->
+        <div class="footer-logo">
+            <img src="assets/logo-footer.png" alt="NEVERSAYCUTZ">
+        </div>
+
+        <!-- ข้อมูลสำนักงาน -->
+        <div class="footer-info">
+            <p><strong>Branch Office</strong></p>
+            <p><a href="#">Location – Thonglor 125 34 Sukhumvit Rd, Khlong Toei Nua, Watthana, Bangkok 10110</a></p>
+            <p><a href="#">Call Center – 099-424-4544</a></p>
+            <p><a href="#">Email – info@neversaycutz.com</a></p>
+        </div>
+
+        <!-- ปุ่ม Admin จัดให้อยู่ขวาสุด -->
+        <div class="admin-container">
+            <a href="admin.html" class="admin-link"><strong>Admin</strong></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    let lastScrollTop = 0;
+    const navbar = document.querySelector('.navbar');
+
+    window.addEventListener('scroll', function () {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop && scrollTop > 50) {
+            // เลื่อนลง -> ซ่อน Navbar
+            navbar.classList.add('hidden');
+        } else {
+            // เลื่อนขึ้น -> แสดง Navbar
+            navbar.classList.remove('hidden');
+        }
+
+        lastScrollTop = scrollTop;
+    });
+</script>
+
+</body>
+</html>

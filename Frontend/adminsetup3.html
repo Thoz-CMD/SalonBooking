@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEVERSAYCUTZ | สยามสแควร์วัน</title>
+    <link rel="stylesheet" href="adminsetup3.css">
+</head>
+<body>
+    
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <div class="navbar-left">
+                <a href="Homepage.html">
+                    <img src="assets/logo.png" alt="NEVERSAYCUTZ" class="logo">
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="service.html">ใหม่ & แนะนำ</a></li>
+                        <li><a href="service.html">ประเภท</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="navbar-right">
+                <div class="search-container">
+                    <input type="text" id="search-bar" class="search-bar" placeholder="ค้นหา..." onkeyup="searchServices()">
+                    <div id="search-results" class="search-results"></div>
+                </div>
+                <a href="login.html" class="login-btn">เข้าสู่ระบบ / สมัครสมาชิก</a> 
+                <span class="icon"><img src="assets/favorite.png" alt="Favorite"></span>
+                <span class="icon"><img src="assets/notification.png" alt="Notification"></span>
+                <span class="icon"><img src="assets/cart.png" alt="Cart"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ส่วนของ Hero Section -->
+    <section class="hero">
+        <img src="assets/siam-hero.png" alt="Siam Square ONE">
+    </section>
+
+    <section class="store-settings-nav">
+        <nav class="admin-nav">
+            <ul>
+                <li ><a href="adminsetup1.html">ร้านค้า</a></li>
+                <li><a href="adminsetup2.html">บริการ</a></li>
+                <li class="active"><a href="adminsetup3.html">ช่างประจำร้าน</a></li>
+                <li ><a href="adminsetup4.html">ชำระเงิน</a></li>
+                <li ><a href="adminsetup5.html">คูปอง</a></li>
+                <li ><a href="adminsetup6.html">แจ้งเตือนลูกค้า</a></li>
+                <li ><a href="adminsetup7.html">สรุป</a></li>
+            </ul>
+        </nav>
+
+        <section class="barbers">
+            <h2>ตั้งค่าช่างประจำร้าน</h2>
+            <div class="barber-list">
+                <div class="barber-card">
+                    <img src="assets/stylist-b.png" alt="ช่างบี" class="barber-image">
+                    <div class="barber-info">
+                        <h3>ช่างบี</h3>
+                        <p>รายละเอียด</p>
+                    </div>
+                    <div class="barber-actions">
+                        <button class="edit-btn">✏️</button>
+                        <button class="delete-btn" onclick="deleteBarber(this)">🗑</button>
+                    </div>
+                </div>
+        
+                <div class="barber-card">
+                    <img src="assets/stylist-art.png" alt="ช่างอาร์ต" class="barber-image">
+                    <div class="barber-info">
+                        <h3>ช่างอาร์ต</h3>
+                        <p>รายละเอียด</p>
+                    </div>
+                    <div class="barber-actions">
+                        <button class="edit-btn">✏️</button>
+                        <button class="delete-btn" onclick="deleteBarber(this)">🗑</button>
+                    </div>
+                </div>
+        
+                <!-- เพิ่มการ์ดช่างใหม่เมื่อคลิกปุ่ม + เพิ่ม -->
+                <div class="barber-card add-barber" onclick="addBarber()">
+                    <span>+ เพิ่ม</span>
+                </div>
+            </div>
+        </section>
+        
+
+    </section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <!-- โลโก้ -->
+        <div class="footer-logo">
+            <img src="assets/logo-footer.png" alt="NEVERSAYCUTZ">
+        </div>
+
+        <!-- ข้อมูลสำนักงาน -->
+        <div class="footer-info">
+            <p><strong>Branch Office</strong></p>
+            <p><a href="#">Location – Thonglor 125 34 Sukhumvit Rd, Khlong Toei Nua, Watthana, Bangkok 10110</a></p>
+            <p><a href="#">Call Center – 099-424-4544</a></p>
+            <p><a href="#">Email – info@neversaycutz.com</a></p>
+        </div>
+
+        <!-- ปุ่ม Admin จัดให้อยู่ขวาสุด -->
+        <div class="admin-container">
+            <a href="admin.html" class="admin-link"><strong>Admin</strong></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    let lastScrollTop = 0;
+    const navbar = document.querySelector('.navbar');
+
+    window.addEventListener('scroll', function () {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop && scrollTop > 50) {
+            // เลื่อนลง -> ซ่อน Navbar
+            navbar.classList.add('hidden');
+        } else {
+            // เลื่อนขึ้น -> แสดง Navbar
+            navbar.classList.remove('hidden');
+        }
+
+        lastScrollTop = scrollTop;
+    });
+</script>
+
+<script>
+    // ฟังก์ชันลบการ์ดบริการ
+    function deleteService(element) {
+        // หาการ์ดบริการที่ถูกคลิก
+        let serviceCard = element.closest('.service-card');
+        
+        // ลบการ์ดบริการ
+        serviceCard.remove();
+    }
+</script>
+
+
+</body>
+</html>

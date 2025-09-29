@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEVERSAYCUTZ | ร้านตัดผม</title>
+    <link rel="stylesheet" href="Homepage.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <div class="navbar-left">
+                <a href="Homepage.html">
+                    <img src="assets/logo.png" alt="NEVERSAYCUTZ" class="logo">
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="service.html">ใหม่ & แนะนำ</a></li>
+                        <li><a href="service.html">ประเภท</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="navbar-right">
+                <div class="search-container">
+                    <input type="text" id="search-bar" class="search-bar" placeholder="ค้นหา..." onkeyup="searchServices()">
+                    <div id="search-results" class="search-results"></div>
+                </div>
+                <a href="login.html" class="login-btn">เข้าสู่ระบบ / สมัครสมาชิก</a> 
+                <span class="icon"><img src="assets/favorite.png" alt="Favorite"></span>
+                <span class="icon"><img src="assets/notification.png" alt="Notification"></span>
+                <span class="icon"><img src="assets/cart.png" alt="Cart"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <img src="assets/hero-banner.png" alt="Hero Banner">
+        </div>
+    </section>
+
+    <!-- Section: Branches -->
+    <section class="branches">
+        <div class="branches-header">
+            <h2>สาขา</h2>
+        </div>
+        <div class="branch-list">
+            <div class="branch">
+                <a href=" siamsquareone.html">
+                    <img src="assets/branch1.png" alt="Siam Square">
+                </a>
+                <h3>NEVERSAYCUTZ (Siam Square ONE)</h3>
+                <p>📍 สยาม สแควร์วัน</p>
+                <p>📞 065-928-0572</p>
+                <span class="heart-icon" data-branch="siam-square">❤️</span>
+            </div>
+            <div class="branch">
+                <a href="ratchayothin.html">
+                    <img src="assets/branch2.png" alt="Ratchayothin">
+                </a>
+                <h3>NEVERSAYCUTZ Ratchayothin</h3>
+                <p>📍 รัชโยธิน</p>
+                <p>📞 065-928-0568</p>
+                <span class="heart-icon" data-branch="ratchayothin">❤️</span>
+            </div>
+            <div class="branch">
+                <a href="centralworld.html">
+                    <img src="assets/branch3.png" alt="Central World">
+                </a>
+                <h3>NEVERSAYCUTZ Central World</h3>
+                <p>📍 เซ็นทรัลเวิลด์</p>
+                <p>📞 061-417-8111</p>
+                <span class="heart-icon" data-branch="central-world">❤️</span>
+            </div>
+            <div class="branch">
+                <a href="themall.html">
+                    <img src="assets/branch4.png" alt="The Mall Bang Khae">
+                </a>
+                <h3>NEVERSAYCUTZ The Mall Bang Khae</h3>
+                <p>📍 เดอะมอลล์บางแค</p>
+                <p>📞 063-923-9631</p>
+                <span class="heart-icon" data-branch="bangkae">❤️</span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Section: Recommended Styles -->
+    <section class="recommended">
+        <div class="recommended-header">
+            <h2>แนะนำ</h2>
+        </div>
+        <div class="style-container">
+            <div class="style-item style1">
+                <img src="assets/style1.png" alt="style1">
+            </div>
+            <div class="right-group">
+                <div class="style-item style2">
+                    <img src="assets/style2.png" alt="style2">
+                </div>
+                <div class="bottom-group">
+                    <div class="style-item style3">
+                        <img src="assets/style3.png" alt="style3">
+                    </div>
+                    <div class="style-item style4">
+                        <img src="assets/style4.png" alt="style4">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <!-- โลโก้ -->
+            <div class="footer-logo">
+                <img src="assets/logo-footer.png" alt="NEVERSAYCUTZ">
+            </div>
+
+            <!-- ข้อมูลสำนักงาน -->
+            <div class="footer-info">
+                <p><strong>Branch Office</strong></p>
+                <p><a href="#">Location – Thonglor 125 34 Sukhumvit Rd, Khlong Toei Nua, Watthana, Bangkok 10110</a></p>
+                <p><a href="#">Call Center – 099-424-4544</a></p>
+                <p><a href="#">Email – info@neversaycutz.com</a></p>
+            </div>
+
+            <!-- ปุ่ม Admin จัดให้อยู่ขวาสุด -->
+            <div class="admin-container">
+                <a href="admin.html" class="admin-link"><strong>Admin</strong></a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        function searchServices() {
+            const searchResults = document.getElementById('search-results');
+            const searchBar = document.getElementById('search-bar');
+            const searchQuery = searchBar.value.toLowerCase();
+            const services = [
+                'Haircut',
+                'Hair Color',
+                'Hair Treatment',
+                'Hair Spa',
+                'Hair Styling',
+                'Infants & Toddlers',
+                'Children Haircut',
+                'Designs'
+            ];
+            const filteredServices = services.filter(service => service.toLowerCase().includes(searchQuery));
+            searchResults.innerHTML = '';
+            filteredServices.forEach(service => {
+                const searchResult = document.createElement('div');
+                searchResult.classList.add('search-result');
+                searchResult.textContent = service;
+                searchResults.appendChild(searchResult);
+            });
+        }
+    </script>
+
+    <script>
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
+    
+        window.addEventListener('scroll', function () {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+            if (scrollTop > lastScrollTop && scrollTop > 50) {
+                // เลื่อนลง -> ซ่อน Navbar
+                navbar.classList.add('hidden');
+            } else {
+                // เลื่อนขึ้น -> แสดง Navbar
+                navbar.classList.remove('hidden');
+            }
+    
+            lastScrollTop = scrollTop;
+        });
+    </script>
+    
+</body>
+</html>

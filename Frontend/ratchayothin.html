@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEVERSAYCUTZ | สยามสแควร์วัน</title>
+    <link rel="stylesheet" href="siamsquareone.css">
+</head>
+<body>
+    
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <div class="navbar-left">
+                <a href="Homepage.html">
+                    <img src="assets/logo.png" alt="NEVERSAYCUTZ" class="logo">
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="service.html">ใหม่ & แนะนำ</a></li>
+                        <li><a href="service.html">ประเภท</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="navbar-right">
+                <div class="search-container">
+                    <input type="text" id="search-bar" class="search-bar" placeholder="ค้นหา..." onkeyup="searchServices()">
+                    <div id="search-results" class="search-results"></div>
+                </div>
+                <a href="login.html" class="login-btn">เข้าสู่ระบบ / สมัครสมาชิก</a> 
+                <span class="icon"><img src="assets/favorite.png" alt="Favorite"></span>
+                <span class="icon"><img src="assets/notification.png" alt="Notification"></span>
+                <span class="icon"><img src="assets/cart.png" alt="Cart"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ส่วนของ Hero Section -->
+    <section class="hero">
+        <img src="assets/ratchayothin-hero.png" alt="Siam Square ONE">
+    </section>
+
+    <!-- ส่วนของรายละเอียดสาขา -->
+    <section class="branch-details">
+        <h1>NEVERSAYCUTZ Ratchayothin</h1>
+        <p><strong>ที่อยู่:</strong> 1839 Phaholyothin Rd, Lat Yao, Chatuchak Bangkok 10900 Thailand</p>
+        <p><strong>โทร:</strong> 065-928-0572</p>
+        <p><strong>Google Map:</strong> <a href="https://g.page/r/Cc6Fj78usWnhEBA" target="_blank">กดที่นี่</a></p>
+        
+        <img src="assets/ratchayothin-shop.png" alt="บรรยากาศร้าน">
+
+        <h2>ร้านตัดผมชาย NEVERSAYCUTZ รัชโยธิน</h2>
+        <p>รัชโยธิน เป็นอีกหนึ่งย่านที่พลุกพล่าน เพราะนอกจากเป็นพื้นที่ยอดนิยมที่คนชานเมืองพักอาศัยแล้ว ยังมีผู้ประกอบการธุรกิจมากมายที่เลือกให้ย่านรัชโยธินเป็นที่ตั้งหลัก ทำให้ตอนนี้รัชโยธินถือได้ว่า เป็นหนึ่งในทำเลทำเงินเลยก็ว่าได้ อีกทั้งยังเติบโตอย่างรวดเร็วทั้งในเชิงด้านธุรกิจ ด้านอสังหาริมทรัยพ์ เพราะเป็นจุดเชื่อมต่อถนนสายหลักทั้งถนนพหลโยธินและถนนรัชดาภิเษก ทำให้ปัจจุบันเราจึงเห็นสิ่งอำนวยความสะดวกห้างสรรพสินค้า คอมมูนิตี้ฯ โรงพยาบาล คลินิก แหล่งเอ็นเตอร์เทนเมนต์ชื่อดัง มีร้านอาหาร ร้านนั่งชิว และคอนโดมิเนียมชื่อดังมากมายผุดขึ้นในย่านนี้</p>
+        <p>NEVERSAYCUTZ ร้านตัดผมชาย อันดับ 1 ที่มีสาขามากที่สุดในกรุงเทพ ก็เป็นอีกหนึ่งร้านที่มองเห็นการเติบโตในด้านธุรกิจย่านรัชโยธิน และเพื่อให้เข้าถึงกลุ่มลูกค้าได้มากขึ้น จึงขยายสาขาและเปิด NEVERSAYCUTZ สาขารัชโยธิน ซึ่งอยู่ภายใน อเวนิว รัชโยธิน </p>
+        <p></p>
+
+        <h3>เวลาเปิด-ปิด:</h3>
+        <p>เปิดบริการทุกวัน 10.00 – 21.00 น.</p>
+
+        <button class="book-button">จองคิว</button>
+    </section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <!-- โลโก้ -->
+        <div class="footer-logo">
+            <img src="assets/logo-footer.png" alt="NEVERSAYCUTZ">
+        </div>
+
+        <!-- ข้อมูลสำนักงาน -->
+        <div class="footer-info">
+            <p><strong>Branch Office</strong></p>
+            <p><a href="#">Location – Thonglor 125 34 Sukhumvit Rd, Khlong Toei Nua, Watthana, Bangkok 10110</a></p>
+            <p><a href="#">Call Center – 099-424-4544</a></p>
+            <p><a href="#">Email – info@neversaycutz.com</a></p>
+        </div>
+
+        <!-- ปุ่ม Admin จัดให้อยู่ขวาสุด -->
+        <div class="admin-container">
+            <a href="admin.html" class="admin-link"><strong>Admin</strong></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    let lastScrollTop = 0;
+    const navbar = document.querySelector('.navbar');
+
+    window.addEventListener('scroll', function () {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop && scrollTop > 50) {
+            // เลื่อนลง -> ซ่อน Navbar
+            navbar.classList.add('hidden');
+        } else {
+            // เลื่อนขึ้น -> แสดง Navbar
+            navbar.classList.remove('hidden');
+        }
+
+        lastScrollTop = scrollTop;
+    });
+</script>
+
+</body>
+</html>
